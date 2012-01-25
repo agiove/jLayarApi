@@ -69,7 +69,7 @@ public class LayarGetPOIsResponse implements Serializable {
 	 * The action format is the same as for POI actions, except that POI-specific parameters 
 	 * will be ignored: closeBiw, autoTriggerRange, autoTriggerOnly.
 	 */
-	public List<LayarActionResponse> actions;
+	public List<LayarGetPOIsAction> actions;
 	
 	/*
 	 * Pagination:

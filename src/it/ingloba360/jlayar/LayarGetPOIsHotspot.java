@@ -179,7 +179,7 @@ public class LayarGetPOIsHotspot implements Serializable {
 	 * 
 	 * NOTE return empty array if not used.
 	 */
-	public List<LayarActionResponse> actions;
+	public List<LayarGetPOIsAction> actions;
 
 	public void compileFrom(LayarPOI p) {
 		this.id = String.valueOf(p.id);

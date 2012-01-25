@@ -15,7 +15,7 @@ package it.ingloba360.jlayar;
  * @author angelo
  * 
  */
-public class LayarActionResponse {
+public class LayarGetPOIsAction {
 
 	/**
 	 * Possible URIs are "tel:", "sms:", "mailto:", "http://", "https://",
