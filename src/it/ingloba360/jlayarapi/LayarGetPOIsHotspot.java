@@ -1,9 +1,7 @@
-package it.ingloba360.jlayar;
+package it.ingloba360.jlayarapi;
 
 import java.io.Serializable;
 import java.util.List;
-
-import models.LayarPOI;
 
 public class LayarGetPOIsHotspot implements Serializable {
 
@@ -181,6 +179,7 @@ public class LayarGetPOIsHotspot implements Serializable {
 	 */
 	public List<LayarGetPOIsAction> actions;
 
+/*	
 	public void compileFrom(LayarPOI p) {
 		this.id = String.valueOf(p.id);
 		this.attribution = p.attribution;
@@ -204,4 +203,5 @@ public class LayarGetPOIsHotspot implements Serializable {
 		this.showBiwOnClick = p.showBiwOnClick != null && p.showBiwOnClick == 0 ? false
 				: true;
 	}
+	*/
 }

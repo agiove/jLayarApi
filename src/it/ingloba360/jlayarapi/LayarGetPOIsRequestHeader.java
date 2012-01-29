@@ -26,7 +26,7 @@
  * Original Author: Angelo Giove (angelo.giove AT ingloba360.it)
  * 				 	Antonio Fittipaldi (antonio.fittipaldi AT ingloba360.it)
  ******************************************************************************/
-package it.ingloba360.jlayar;
+package it.ingloba360.jlayarapi;
 
 /**
 HTTP request header: User-Agent: The user agent originally set by the client. 

@@ -26,7 +26,7 @@
  * Original Author: Angelo Giove (angelo.giove AT ingloba360.it)
  * 				 	Antonio Fittipaldi (antonio.fittipaldi AT ingloba360.it)
  ******************************************************************************/
-package it.ingloba360.jlayar.annotations;
+package it.ingloba360.jlayarapi.annotations;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

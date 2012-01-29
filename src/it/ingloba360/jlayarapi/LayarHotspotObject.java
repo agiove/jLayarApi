@@ -1,4 +1,4 @@
-package it.ingloba360.jlayar;
+package it.ingloba360.jlayarapi;
 
 public class LayarHotspotObject {
 

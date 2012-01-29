@@ -1,14 +1,16 @@
-package it.ingloba360.jlayar;
+package it.ingloba360.jlayarapi;
 
 import java.util.List;
 
+/*
 import models.crudsiena.SienaSupport;
 import siena.Id;
 import siena.Max;
 import siena.NotNull;
+*/
 
-public class LayarPOI extends SienaSupport {
-
+public class LayarPOI {
+/*
 	@Id
 	public Long id;
 	
@@ -84,4 +86,5 @@ public class LayarPOI extends SienaSupport {
 		
 		return ret;
 	}
+	*/
 }

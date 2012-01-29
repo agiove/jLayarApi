@@ -26,7 +26,7 @@
  * 					 Antonio Fittipaldi (antonio.fittipaldi AT ingloba360.it); 
  *
  */
-package it.ingloba360.jlayar;
+package it.ingloba360.jlayarapi;
 
 /**
  * 

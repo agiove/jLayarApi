@@ -26,11 +26,11 @@
  * Original Author: Angelo Giove (angelo.giove AT ingloba360.it)
  * 				 	Antonio Fittipaldi (antonio.fittipaldi AT ingloba360.it)
  ******************************************************************************/
-package it.ingloba360.jlayar;
+package it.ingloba360.jlayarapi;
 
-import it.ingloba360.jlayar.annotations.LayarApiCategory;
-import it.ingloba360.jlayar.annotations.LayarApiVersion;
-import it.ingloba360.jlayar.annotations.LayarRequired;
+import it.ingloba360.jlayarapi.annotations.LayarApiCategory;
+import it.ingloba360.jlayarapi.annotations.LayarApiVersion;
+import it.ingloba360.jlayarapi.annotations.LayarRequired;
 
 public class LayarGetPOIsOAuthSupport {
 
