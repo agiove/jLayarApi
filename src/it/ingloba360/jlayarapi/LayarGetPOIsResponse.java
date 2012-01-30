@@ -28,20 +28,33 @@
  ******************************************************************************/
 package it.ingloba360.jlayarapi;
 
+import it.ingloba360.jlayarapi.annotations.LayarApiCategory;
+import it.ingloba360.jlayarapi.annotations.LayarApiVersion;
+import it.ingloba360.jlayarapi.annotations.LayarRequired;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class LayarGetPOIsResponse implements Serializable {
 
+	private static final long serialVersionUID = -1249190387988588629L;
+
 	/**
 	 * The name of the layer for which the POI's are returned
 	 */
+	@LayarRequired
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root")	
 	public String layer;
 	
 	/**
 	 * The list of POIs for the current location and layer.
 	 */
-	public List<LayarGetPOIsHotspot> hotspots;
+	@LayarRequired
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root")	
+	public List<LayarGetPOIsHotspot> hotspots = new ArrayList<LayarGetPOIsHotspot>();
 	
 	/**
 	 * If an error condition occurs, this will be notified using the error code. 
@@ -56,11 +69,17 @@ public class LayarGetPOIsResponse implements Serializable {
 	 * error 30: This layer requires authentication. 
 	 * The client should open the webview at the authURL defined by the layer.
 	 */
+	@LayarRequired
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root")	
 	public int errorCode = 0;
 	
 	/**
 	 * The string for the error above. Max 80 characters.
 	 */
+	@LayarRequired
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root")	
 	public String errorString = "ok";
 	
 	/**
@@ -69,7 +88,9 @@ public class LayarGetPOIsResponse implements Serializable {
 	 * The action format is the same as for POI actions, except that POI-specific parameters 
 	 * will be ignored: closeBiw, autoTriggerRange, autoTriggerOnly.
 	 */
-	public List<LayarGetPOIsAction> actions;
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root")	
+	public List<LayarGetPOIsAction> actions = new ArrayList<LayarGetPOIsAction>();
 	
 	/*
 	 * Pagination:
@@ -97,30 +118,40 @@ public class LayarGetPOIsResponse implements Serializable {
 	 * The key to the page being returned. 
 	 * Pass this key to the page parameter in the request if the next page is requested.
 	 */
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root")	
 	public String nextPageKey;
 	
 	/**
 	 * Whether more pages can be fetched
 	 */
-	public Boolean morePages;
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root")	
+	public Boolean morePages = false;
 	
 	/**
 	 * The value of the radius must be returned if the GetPOI request doesn't contain a requested radius (flexible radius asked). 
 	 * It cannot be used to overrule a value of radius if that was provided in the request.
 	 */
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root")	
 	public Integer radius;
 	
 	/**
 	 * This tells the client how many seconds to wait until the next getPOI request is made. 
 	 * Default is 300s (5 minutes). Minimum is 10s. 	
 	 */
-	public Integer refreshInterval;
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root")	
+	public Integer refreshInterval = 300;
 	
 	/**
 	 * This tells the client to refresh the layer if the user has moved by more than 
 	 * the distance specified. Default is 100m. Minimum is 3m.
 	 */
-	public Integer refreshDistance;
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root")	
+	public Integer refreshDistance = 100;
 	
 	/**
      * This tells the client the type of refresh that should be done:
@@ -130,11 +161,15 @@ public class LayarGetPOIsResponse implements Serializable {
  	 * 
 	 * Default is true. 
 	 */
-	public Boolean fullRefresh;
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root")	
+	public Boolean fullRefresh = true;
 	
 	/**
 	 *  This message is briefly displayed as pop-up on top of the current view, as a result of a getPOI request.
 	 */
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root")	
 	public String showMessage;
 	
 	/**
@@ -143,5 +178,7 @@ public class LayarGetPOIsResponse implements Serializable {
 	 *  
 	 *  es.  "deletedHotspots":["spot0001", "spot0002"]
 	 */
-	public String[] deletedHotspots;
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root")	
+	public List<String> deletedHotspots = new ArrayList<String>();
 }
