@@ -1,6 +1,5 @@
-/*******************************************************************************
- * ===========================================================
- * jLayarApi : a java wrapper for layar api
+/* ===========================================================
+ * jLayarApi: a Java wrapper for Layar API
  * ===========================================================
  * 
  * (C) Copyright 2012 by Ingloba360
@@ -25,7 +24,7 @@
  * 
  * Original Author: Angelo Giove (angelo.giove AT ingloba360.it)
  * 				 	Antonio Fittipaldi (antonio.fittipaldi AT ingloba360.it)
- ******************************************************************************/
+ */
 package it.ingloba360.jlayarapi;
 
 import it.ingloba360.jlayarapi.annotations.LayarApiCategory;
