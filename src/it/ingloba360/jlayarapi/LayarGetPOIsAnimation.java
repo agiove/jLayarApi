@@ -83,7 +83,7 @@ public class LayarGetPOIsAnimation {
     @LayarRequired
 	@LayarApiVersion("6.0")
 	@LayarApiCategory("root.animations")	
-	public int length;
+	public Integer length;
     
 	/**
      * Delay in milliseconds before starting the animation.
@@ -91,7 +91,7 @@ public class LayarGetPOIsAnimation {
     @LayarRequired
 	@LayarApiVersion("6.0")
 	@LayarApiCategory("root.animations")	
-	public int delay = 0;
+	public Integer delay = 0;
     
 	/**
      * Delay in milliseconds before starting the animation.
@@ -99,7 +99,7 @@ public class LayarGetPOIsAnimation {
     @LayarOptional
 	@LayarApiVersion("6.0")
 	@LayarApiCategory("root.animations")	
-	public long interpolationParam = 0;
+	public Long interpolationParam = 0;
     
 	/**
      * The interpolation to use in the animation.
@@ -131,7 +131,7 @@ public class LayarGetPOIsAnimation {
     @LayarOptional
 	@LayarApiVersion("6.0")
 	@LayarApiCategory("root.animations")	
-	public long from;
+	public Long from;
     
 	/**
      * Specifies the end state of the animation.
@@ -139,7 +139,7 @@ public class LayarGetPOIsAnimation {
     @LayarOptional
 	@LayarApiVersion("6.0")
 	@LayarApiCategory("root.animations")	
-	public long to;
+	public Long to;
 
 	/**
      * Axis that this animation resolves around.
