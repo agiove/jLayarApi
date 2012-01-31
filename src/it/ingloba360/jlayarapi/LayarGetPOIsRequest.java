@@ -37,6 +37,7 @@ public class LayarGetPOIsRequest {
 	/** Current server timestamp of the request */
 	public Long timestamp;
 
+	/** Request Header */
 	public LayarGetPOIsRequestHeader header;
 	
 	/**
@@ -68,7 +69,7 @@ public class LayarGetPOIsRequest {
 	 * However, this version string cannot be used anymore to differentiate clients 
 	 * (Android and iPhone clients use the same version string, as it's the API version). 
 	 * Current list of versions:
-	 * "2", "2.1", "ip2.0", "2.2", ip2.1", "2.2.1", "2.2.2", "3.0", "ip3.0", "3.1", "3.5", "3.6", "4.0".
+	 * "2", "2.1", "ip2.0", "2.2", ip2.1", "2.2.1", "2.2.2", "3.0", "ip3.0", "3.1", "3.5", "3.6", "4.0", "5.0", "6.0".
 	 */
 	@LayarRequired
 	@LayarApiVersion("2.1")
