@@ -27,6 +27,14 @@
  */
 package it.ingloba360.jlayarapi;
 
+import it.ingloba360.jlayarapi.annotations.LayarApiCategory;
+import it.ingloba360.jlayarapi.annotations.LayarApiVersion;
+import it.ingloba360.jlayarapi.annotations.LayarOptional;
+import it.ingloba360.jlayarapi.annotations.LayarRequired;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class LayarGetPOIsDialog {
     
     /**
