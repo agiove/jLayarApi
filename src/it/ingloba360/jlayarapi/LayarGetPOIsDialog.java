@@ -28,5 +28,45 @@
 package it.ingloba360.jlayarapi;
 
 public class LayarGetPOIsDialog {
+    
+    /**
+     * Title of the dialog box.
+	 */
+    @LayarRequired
+	@LayarApiVersion("6.0")
+	@LayarApiCategory("root.showDialog")	
+	public String title;
+    
+    /**
+     * Text of the dialog box.
+	 */
+    @LayarRequired
+	@LayarApiVersion("6.0")
+	@LayarApiCategory("root.showDialog")	
+	public String description;
+    
+    /**
+     * Icon to show in the dialog box.
+	 */
+    @LayarRequired
+	@LayarApiVersion("6.0")
+	@LayarApiCategory("root.showDialog")	
+	public String iconURL;
+    
+    /**
+     * Buttons with various actions.
+	 */
+    @LayarRequired
+	@LayarApiVersion("6.0")
+	@LayarApiCategory("root.showDialog")	
+	public List<LayarGetPOIsAction> actions = new ArrayList<LayarGetPOIsAction>();
+    
+    /**
+     * Specifies the BW style in the Camera view on layer level.
+	 */
+    @LayarOptional
+	@LayarApiVersion("6.0")
+	@LayarApiCategory("root.showDialog")	
+	public List<LayarGetPOIsAction> biwStyle = new ArrayList<LayarGetPOIsAction>();
 
 }
