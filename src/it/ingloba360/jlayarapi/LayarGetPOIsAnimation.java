@@ -27,6 +27,14 @@
  */
 package it.ingloba360.jlayarapi;
 
+import it.ingloba360.jlayarapi.annotations.LayarApiCategory;
+import it.ingloba360.jlayarapi.annotations.LayarApiVersion;
+import it.ingloba360.jlayarapi.annotations.LayarOptional;
+import it.ingloba360.jlayarapi.annotations.LayarRequired;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class LayarGetPOIsAnimation {
     
 	/**
@@ -99,7 +107,7 @@ public class LayarGetPOIsAnimation {
     @LayarOptional
 	@LayarApiVersion("6.0")
 	@LayarApiCategory("root.animations")	
-	public Long interpolationParam = 0;
+	public Long interpolationParam;
     
 	/**
      * The interpolation to use in the animation.

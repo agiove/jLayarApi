@@ -32,6 +32,8 @@ import java.util.List;
 
 public class LayarGetPOIsHotspot implements Serializable {
 
+	private static final long serialVersionUID = -8289790571446325328L;
+
 	/**
 	 * A unique id for the POI within the layer, this is used to track the POI's
 	 * when refreshing the list.
