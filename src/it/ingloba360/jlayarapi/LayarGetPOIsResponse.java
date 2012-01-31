@@ -180,4 +180,37 @@ public class LayarGetPOIsResponse implements Serializable {
 	@LayarApiVersion("2.1")
 	@LayarApiCategory("root")	
 	public List<String> deletedHotspots = new ArrayList<String>();
+	
+	/**
+	 *  The animations defined on layer level should be applied to all POIs.
+	 *  NOTE that POI level animations will override layer level animations.
+	 */
+	@LayarApiVersion("6.0")
+	@LayarApiCategory("root")
+	public List<LayarGetPOIsAnimation> animations = new ArrayList<LayarGetPOIsAnimation>();
+
+	/**
+	 *  A configurable dialog with a descriptive text and optionally buttons linking to actions.
+	 *  It will be shown as a popup.
+	 */
+	@LayarApiVersion("6.0")
+	@LayarApiCategory("root")
+	public LayarGetPOIsDialog showDialog;
+
+	/**
+	 *  This forces the BIW style for all POIs to a certain form (verbose "classic" or lean "collapsed").
+	 *  Set to null or do not send for default behavior, which is "classic" for geolocated POIs and "collapsed" for Vision POIs.
+	 *  NOTE that this key can also be specified at POI level.
+	 *  If both are present, the value defined for a POI overrules the one defined at the root level of the getPOIs response.
+	 */
+	@LayarApiVersion("6.0")
+	@LayarApiCategory("root")
+	public String biwStyle = null;
+	
+	/**
+	 *  For Vision enabled layer, this can be used to disable the menu that shows thumbnails of trackable images.
+	 */
+	@LayarApiVersion("6.0")
+	@LayarApiCategory("root")
+	public Boolean disableClueMenu = false;
 }
