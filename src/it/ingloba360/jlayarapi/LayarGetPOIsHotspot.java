@@ -27,9 +27,17 @@
  */
 package it.ingloba360.jlayarapi;
 
+import it.ingloba360.jlayarapi.annotations.LayarApiCategory;
+import it.ingloba360.jlayarapi.annotations.LayarApiVersion;
+import it.ingloba360.jlayarapi.annotations.LayarDefaultValue;
+import it.ingloba360.jlayarapi.annotations.LayarMaxDim;
+import it.ingloba360.jlayarapi.annotations.LayarRequired;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
+// TODO: completare in base al doc!!!
 public class LayarGetPOIsHotspot implements Serializable {
 
 	private static final long serialVersionUID = -8289790571446325328L;
@@ -38,199 +46,109 @@ public class LayarGetPOIsHotspot implements Serializable {
 	 * A unique id for the POI within the layer, this is used to track the POI's
 	 * when refreshing the list.
 	 */
+	@LayarRequired
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root.hotspots")	
 	public String id;
 
 	/**
-	 * The distance of the POI to the current location
+	 * Placement of the POI. Can either be a geolocation or the key of a reference image in Layar Vision. 
+	 * For geolocation, alt is optional but lat and lon are mandatory.
 	 */
-	public Double distance = 0.0;
+	@LayarRequired
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root.hotspots")	
+	public LayarGetPOIsAnchor anchor;
 
 	/**
-	 * The first line in the BIW, larger font, underlined, using titleColor.
+	 * In Layar client, each POI has a brief information widget (BIW) which can be used to provide some text to describe the POI. 
+	 * It contains three parameters, title, description and footnote.
 	 */
-	public String title;
-
+	@LayarRequired
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root.hotspots")
+	public LayarGetPOIsText text;
+	
 	/**
-	 * The type of POI, from which the client determines which CIW to use if
-	 * custom CIWs are defined. 0 = default CIW. 1-3 = use the custom CIW icons
-	 * specified in the layer definition (custom_ciws).
-	 * 
-	 * Since v3: you can define more than 3 custom CIW icons.
+	 * This enables actions on the POI level. Each POI can have its own actions. 
+	 * They will appear on the expanded BIW dialog.
 	 */
-	public Integer type = 0;
-
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root.hotspots")
+	public List<LayarGetPOIsAction> actions = new ArrayList<LayarGetPOIsAction>();
+	
 	/**
-	 * The integer value of the latitude for the POI: divide by 10^6 to get the
-	 * decimal GPS coordinate value. Can be negative.
+	 * The location of the image to be displayed inside the BIW. 
+	 * If the image is too large, it will be resized to fit within a bounding box of 100x75 pixels, preserving aspect ratio. 
+	 * NOTE: the image file size should be smaller than 100kb, otherwise, the image will not be loaded.
 	 */
-	public Integer lat;
-
-	/**
-	 * The integer value of the longitude for the POI: divide by 10^6 to get the
-	 * decimal GPS coordinate value. Can be negative.
-	 */
-	public Integer lon;
-
-	/* -------------------------------------- */
-	/* BIW information */
-	/* -------------------------------------- */
-
-	/**
-	 * The location of the image to be displayed inside the BIW. If the image is
-	 * too large, it will be resized to fit within a bounding box of 100x75
-	 * pixels, preserving aspect ratio. Pass null if empty.
-	 * 
-	 * NOTE: the image file size should be smaller than 100kb, otherwise, the
-	 * image will not be loaded.
-	 */
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root.hotspots")
+	@LayarMaxDim("100kb")
 	public String imageURL;
-
+	
 	/**
-	 * The fourth line in the BIW, normal font using textColor.
+	 * This tells the layar client whether or not a small BIW (the one at the bottom of the screen) 
+	 * should be shown when the POI is in focus. 
 	 */
-	public String line4;
-
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root.hotspots")
+	@LayarDefaultValue("true")
+	public Boolean showSmallBiw = true;
+	
 	/**
-	 * The third line in the BIW, normal font using textColor.
+	 * This tells the client whether or not a detailed BIW (the big one in the middle of the screen) 
+	 * should be shown when the user clicks on the POI or on the small BIW. 
+	 * If the value is false, the first action from the list of actions will be fired instead. 
+	 * NOTE: This means there is no way for the user to manually access the actions. 
+	 * The first one is triggered by a user click, one other action can be activated by using autoTrigger settings. 
+	 * More than 2 actions won't be used.
 	 */
-	public String line3;
-
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root.hotspots")
+	@LayarDefaultValue("true")
+	public Boolean showBiwOnClick = true;
+	
 	/**
-	 * The second line in the BIW, normal font using textColor.
+	 * This tells the client which BIW style should be used, classic or collapsed. 
+	 * "classic" style displays the entire "text" object when a POI is in focus while "collapsed" style 
+	 * only shows the text.title parameter. 
+	 * This POI level "biwStyle" will overrule the "biwStyle" defined on the layer level.
 	 */
-	public String line2;
-
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root.hotspots")
+	@LayarDefaultValue("classic|collapsed")
+	public String biwStyle = "classic";
+	
 	/**
-	 * The last line in the BIW, small font using textColor
+	 * A POI can be represented by an icon defined in the "url" parameter below or a set of CIW (Custom POI Indicator Widget) 
+	 * icons defined on the publishing site. If a few POIs serve the same kind of purpose and can be represented by the same icon set, 
+	 * it is recommended to use the CIW icon sets. 
+	 * You can check here to learn more on how Layar client renders POIs in the Camera view.
 	 */
-	public String attribution;
-
-	/* ----------------------- */
-	/* hotspots representation */
-	/* ----------------------- */
-
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root.hotspots")
+	public LayarGetPOIsIcon icon;
+	
 	/**
-	 * 1: 1d - usual POI (icons). Default value (if no value is supplied, the
-	 * usual 1d POI is assumed) 2: 2d - image used for POI 3: 3d - 3d object
-	 * used for POI
-	 */
-	public Integer dimension = 1;
-
-	/**
-	 * Mandatory if dimension is 2 or 3. Determines the location of the
-	 * representations of the object (files to download)
-	 * 
-	 * NOTE: For 2d images, the image file size should be smaller than 100Kb.
+	 * A POI can be represented by a 2D image or a 3D model in the Camera view. 
+	 * These objects will be rendered realistically as if they are placed in the real world. 
+	 * For more information on how layar client renders objects in the camera view, please read here.  
+	 * NOTE: For 2d images, the image file size should be smaller than 100Kb. 
 	 * For 3d objects, the file size should be smaller than 1Mb.
 	 */
-	public LayarHotspotObject object;
-
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root.hotspots")
+	public LayarGetPOIsObject object;
+	
 	/**
-	 * Mandatory if dimension is 2 or 3. Determines how to place the object in
-	 * space.
+	 * 	A few factors can be used to transform the 2D and 3D objects in the Camera view, for instance scale, rotation and translate. 
 	 */
-	public LayarHotspotTransform transform;
-
-	/* ----------------------- */
-	/* Altitude info */
-	/* ----------------------- */
-
-	/**
-	 * Real altitude of object in meters. If this is missing, the same altitude
-	 * as the user is assumed.
-	 * 
-	 * NOTE: This parameter will be used only when the "alt" of the user is
-	 * passed through in the getPOIs request. Otherwise, the value will be
-	 * ignored.
-	 */
-	public Integer alt;
-
-	/**
-	 * Altitude in meters of the object with respect to the user's altitude.
-	 * 
-	 * NOTE: Not used if 'alt' is supplied and the user's altitude is known.
-	 */
-	public Integer relativeAlt;
-
-	/* ----------------------- */
-	/* layar stream options */
-	/* ----------------------- */
-
-	/**
-	 * A value of True indicates to the client that this particular POI should
-	 * be locked directly when the POIs are shown. Only one POI can have this
-	 * flag set to true in the POI response. If more than one POI has this value
-	 * set to True, the client will pick one (no guarantee which). By default,
-	 * it is false.
-	 */
-	public boolean inFocus = false;
-
-	/**
-	 * Set this value to true if your layer is being indexed by Layar Stream but
-	 * wish to exclude this particular POI from being indexed. This is for
-	 * example useful in a game, where you don't want your clues to be indexed
-	 * and would include only the starting point of the game in Layar Stream. By
-	 * default, it is false.
-	 */
-	public boolean doNotIndex = false;
-
-	/* ----------------------- */
-	/* BIW control */
-	/* ----------------------- */
-
-	/**
-	 * This tells the client whether or not a small BIW (the one at the bottom
-	 * of the screen) should be shown when the POI is in focus. Default value is
-	 * true.
-	 */
-	public boolean showSmallBiw = true;
-
-	/**
-	 * This tells the client whether or not a detailled BIW (the big one in the
-	 * middle of the screen) should be shown when the user clicks on the POI or
-	 * on the small BIW. If the value is false, the first action from the list
-	 * of actions will be fired instead.
-	 * 
-	 * Note: If false means there is no way for the user to manually access the
-	 * actions. The first one is triggered by a user click, one other action can
-	 * be used with autoTrigger to activate it. More than 2 actions won't be
-	 * used.
-	 * 
-	 * Default value is true.
-	 */
-	public boolean showBiwOnClick = true;
-
-	/**
-	 * A list of URIs that can be invoked when the user clicks on the BIW. The
-	 * various actions are displayed as a list of buttons in an overlay sheet.
-	 * 
-	 * NOTE return empty array if not used.
-	 */
-	public List<LayarGetPOIsAction> actions;
-
-/*	
-	public void compileFrom(LayarPOI p) {
-		this.id = String.valueOf(p.id);
-		this.attribution = p.attribution;
-		this.title = p.title;
-		this.lat = (int) (p.lat * 1000000);
-		this.lon = (int) (p.lon * 1000000);
-		this.imageURL = p.imageURL;
-		this.line4 = p.line4;
-		this.line3 = p.line3;
-		this.line2 = p.line2;
-		this.type = p.type != null ? p.type : 0;
-		this.dimension = p.dimension != null ? p.dimension : 1;
-		this.alt = p.alt;
-		this.relativeAlt = p.relativeAlt;
-		this.distance = p.distance;
-		this.inFocus = p.inFocus != null && p.inFocus == 1 ? true : false;
-		this.doNotIndex = p.doNotIndex != null && p.doNotIndex == 1 ? true
-				: false;
-		this.showSmallBiw = p.showSmallBiw != null && p.showSmallBiw == 0 ? false
-				: true;
-		this.showBiwOnClick = p.showBiwOnClick != null && p.showBiwOnClick == 0 ? false
-				: true;
-	}
-	*/
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root.hotspots")
+	public LayarGetPOIsTransform transform;
+	
+	public Boolean inFocus = false;
+	public Boolean doNotIndex = false;
+	public List<LayarGetPOIsAnimation> animations = new ArrayList<LayarGetPOIsAnimation>();
 }

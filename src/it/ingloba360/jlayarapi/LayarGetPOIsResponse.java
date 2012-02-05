@@ -29,6 +29,7 @@ package it.ingloba360.jlayarapi;
 
 import it.ingloba360.jlayarapi.annotations.LayarApiCategory;
 import it.ingloba360.jlayarapi.annotations.LayarApiVersion;
+import it.ingloba360.jlayarapi.annotations.LayarDefaultValue;
 import it.ingloba360.jlayarapi.annotations.LayarRequired;
 
 import java.io.Serializable;
@@ -56,6 +57,16 @@ public class LayarGetPOIsResponse implements Serializable {
 	public List<LayarGetPOIsHotspot> hotspots = new ArrayList<LayarGetPOIsHotspot>();
 	
 	/**
+	 * This enables actions on the entire layer, which will be placed in the menu 
+	 * (an extra "Actions" button will be shown if defined). 
+	 * The action format is the same as for POI actions, except that POI-specific parameters 
+	 * will be ignored: closeBiw, autoTriggerRange, autoTriggerOnly.
+	 */
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root")	
+	public List<LayarGetPOIsAction> actions = new ArrayList<LayarGetPOIsAction>();
+	
+	/**
 	 * If an error condition occurs, this will be notified using the error code. 
 	 * Note that in this case, the server is actually responding, 
 	 * this is different than a HTTP 500 Error situation (server error).
@@ -81,15 +92,7 @@ public class LayarGetPOIsResponse implements Serializable {
 	@LayarApiCategory("root")	
 	public String errorString = "ok";
 	
-	/**
-	 * This enables actions on the entire layer, which will be placed in the menu 
-	 * (an extra "Actions" button will be shown if defined). 
-	 * The action format is the same as for POI actions, except that POI-specific parameters 
-	 * will be ignored: closeBiw, autoTriggerRange, autoTriggerOnly.
-	 */
-	@LayarApiVersion("2.1")
-	@LayarApiCategory("root")	
-	public List<LayarGetPOIsAction> actions = new ArrayList<LayarGetPOIsAction>();
+
 	
 	/*
 	 * Pagination:
@@ -126,6 +129,7 @@ public class LayarGetPOIsResponse implements Serializable {
 	 */
 	@LayarApiVersion("2.1")
 	@LayarApiCategory("root")	
+	@LayarDefaultValue("false")
 	public Boolean morePages = false;
 	
 	/**
@@ -142,6 +146,7 @@ public class LayarGetPOIsResponse implements Serializable {
 	 */
 	@LayarApiVersion("2.1")
 	@LayarApiCategory("root")	
+	@LayarDefaultValue("300")
 	public Integer refreshInterval = 300;
 	
 	/**
@@ -150,6 +155,7 @@ public class LayarGetPOIsResponse implements Serializable {
 	 */
 	@LayarApiVersion("2.1")
 	@LayarApiCategory("root")	
+	@LayarDefaultValue("100")
 	public Integer refreshDistance = 100;
 	
 	/**
@@ -162,6 +168,7 @@ public class LayarGetPOIsResponse implements Serializable {
 	 */
 	@LayarApiVersion("2.1")
 	@LayarApiCategory("root")	
+	@LayarDefaultValue("true")
 	public Boolean fullRefresh = true;
 	
 	/**
@@ -212,5 +219,6 @@ public class LayarGetPOIsResponse implements Serializable {
 	 */
 	@LayarApiVersion("6.0")
 	@LayarApiCategory("root")
+	@LayarDefaultValue("false")
 	public Boolean disableClueMenu = false;
 }

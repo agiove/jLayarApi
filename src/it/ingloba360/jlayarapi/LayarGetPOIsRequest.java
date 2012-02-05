@@ -122,7 +122,7 @@ public class LayarGetPOIsRequest {
 	@LayarApiVersion("4.0")
 	@LayarApiCategory("Action type")
 	@LayarDefaultValue("refresh")
-	public String action;			/* required */
+	public String action = "refresh";			/* required */
 	
 	/**
 	 * the accuracy of the current location, as given by the device. 

@@ -29,18 +29,17 @@ package it.ingloba360.jlayarapi;
 
 import it.ingloba360.jlayarapi.annotations.LayarApiCategory;
 import it.ingloba360.jlayarapi.annotations.LayarApiVersion;
-import it.ingloba360.jlayarapi.annotations.LayarOptional;
 import it.ingloba360.jlayarapi.annotations.LayarRequired;
 
 import java.util.ArrayList;
 import java.util.List;
 
+// TODO: riprogettare in base al doc!!!
 public class LayarGetPOIsAnimation {
     
 	/**
      * A sequence of animations are triggered when the POI is first loaded in the AR view.
 	 */
-    @LayarOptional
 	@LayarApiVersion("6.0")
 	@LayarApiCategory("root.animations")	
 	public List<String> onCreate = new ArrayList<String>();
@@ -48,7 +47,6 @@ public class LayarGetPOIsAnimation {
 	/**
      * A sequence of animations are triggered when the POI is updated in the getPOIs response.
 	 */
-    @LayarOptional
 	@LayarApiVersion("6.0")
 	@LayarApiCategory("root.animations")	
 	public List<String> onUpdate = new ArrayList<String>();
@@ -56,7 +54,6 @@ public class LayarGetPOIsAnimation {
 	/**
      * A sequence of animations are triggered when the POI is removed from the AR view.
 	 */
-    @LayarOptional
 	@LayarApiVersion("6.0")
 	@LayarApiCategory("root.animations")	
 	public List<String> onDelete = new ArrayList<String>();
@@ -64,7 +61,6 @@ public class LayarGetPOIsAnimation {
 	/**
      * A sequence of animations are triggered when the POI gets focus in the AR view.
 	 */
-    @LayarOptional
 	@LayarApiVersion("6.0")
 	@LayarApiCategory("root.animations")	
 	public List<String> onFocus = new ArrayList<String>();
@@ -72,7 +68,6 @@ public class LayarGetPOIsAnimation {
 	/**
      * A sequence of animations are triggered when user taps onthe POI in the AR view.
 	 */
-    @LayarOptional
 	@LayarApiVersion("6.0")
 	@LayarApiCategory("root.animations")	
 	public List<String> onClick = new ArrayList<String>();
@@ -104,7 +99,6 @@ public class LayarGetPOIsAnimation {
 	/**
      * Delay in milliseconds before starting the animation.
 	 */
-    @LayarOptional
 	@LayarApiVersion("6.0")
 	@LayarApiCategory("root.animations")	
 	public Long interpolationParam;
@@ -112,7 +106,6 @@ public class LayarGetPOIsAnimation {
 	/**
      * The interpolation to use in the animation.
 	 */
-    @LayarOptional
 	@LayarApiVersion("6.0")
 	@LayarApiCategory("root.animations")	
 	public String interpolationString = "linear";
@@ -120,7 +113,6 @@ public class LayarGetPOIsAnimation {
 	/**
      * The POI state keeps the end state of the animation.
 	 */
-    @LayarOptional
 	@LayarApiVersion("6.0")
 	@LayarApiCategory("root.animations")	
 	public Boolean persist = false;
@@ -128,7 +120,6 @@ public class LayarGetPOIsAnimation {
 	/**
      * Specifies whether the animation is repeated in a loop.
 	 */
-    @LayarOptional
 	@LayarApiVersion("6.0")
 	@LayarApiCategory("root.animations")	
 	public Boolean reoeat = false;
@@ -136,7 +127,6 @@ public class LayarGetPOIsAnimation {
 	/**
      * Specifies the start state of the animation.
 	 */
-    @LayarOptional
 	@LayarApiVersion("6.0")
 	@LayarApiCategory("root.animations")	
 	public Long from;
@@ -144,7 +134,6 @@ public class LayarGetPOIsAnimation {
 	/**
      * Specifies the end state of the animation.
 	 */
-    @LayarOptional
 	@LayarApiVersion("6.0")
 	@LayarApiCategory("root.animations")	
 	public Long to;
@@ -152,7 +141,6 @@ public class LayarGetPOIsAnimation {
 	/**
      * Axis that this animation resolves around.
 	 */
-    @LayarOptional
 	@LayarApiVersion("6.0")
 	@LayarApiCategory("root.animations")	
 	public List<String> axis = new ArrayList<String>();

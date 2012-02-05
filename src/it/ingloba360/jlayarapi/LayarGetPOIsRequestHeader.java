@@ -45,6 +45,7 @@ Only for the Layar Reality Browser, not used by Layar Player (not sent by the pl
 
 poiUrl: Part of the layer definition, can be set using the Layar Provisioning Website
 */
+// TODO: completare con i campi corretti della request ricevuta
 public class LayarGetPOIsRequestHeader {
 
 	public String userAgent;

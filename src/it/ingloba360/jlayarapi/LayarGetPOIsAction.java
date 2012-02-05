@@ -27,6 +27,14 @@
  */
 package it.ingloba360.jlayarapi;
 
+import it.ingloba360.jlayarapi.annotations.LayarApiCategory;
+import it.ingloba360.jlayarapi.annotations.LayarApiVersion;
+import it.ingloba360.jlayarapi.annotations.LayarDefaultValue;
+import it.ingloba360.jlayarapi.annotations.LayarRequired;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 
  * Video: All formats supported natively by the device are supported. In order
@@ -63,6 +71,9 @@ public class LayarGetPOIsAction {
 	 * v. 5.0 added a new sharing intent (layarshare://<layername>/?<parameters>
 	 * that can be used within the layar client.
 	 */
+	@LayarRequired
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root.actions|hotspots.actions")
 	public String uri;
 
 	/**
@@ -70,6 +81,9 @@ public class LayarGetPOIsAction {
 	 * the action. Otherwise the app will show a default text depending on the
 	 * URI scheme used.
 	 */
+	@LayarRequired
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root.actions|hotspots.actions")
 	public String label;
 
 	/**
@@ -95,12 +109,19 @@ public class LayarGetPOIsAction {
 	 * HTTP 302 response (plain text) will be displayed as a pop-up to the user
 	 * before performing the new getPOI request.
 	 */
-	public String contentType;
+	@LayarRequired
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root.actions|hotspots.actions")
+	@LayarDefaultValue("application/vnd.layar.internal")
+	public String contentType = "application/vnd.layar.internal";
 
 	/**
 	 * GET or POST GET by default
 	 */
-	public String method;
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root.actions|hotspots.actions")
+	@LayarDefaultValue("GET")
+	public String method = "GET";
 
 	/**
 	 * ["lat", "lon", "alt", "lang", "countrycode", "localCountryCode",
@@ -115,7 +136,9 @@ public class LayarGetPOIsAction {
 	 * NOTE: countryCode is the home country of the user while localCountryCode
 	 * is the country the user is in at the moment
 	 */
-	public String[] params;
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root.actions|hotspots.actions")
+	public List<String> params = new ArrayList<String>();
 
 	/**
 	 * This tells the client to close the BIW after the user clicked the button
@@ -126,7 +149,10 @@ public class LayarGetPOIsAction {
 	 * NOTE: not included in the new Actions object (layer level) defined in the
 	 * JSON response.
 	 */
-	public Boolean closeBiw;
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("hotspots.actions")
+	@LayarDefaultValue("false")
+	public Boolean closeBiw = false;
 
 	/**
 	 * http://layar.pbworks.com/Activity-types-for-POI-actions
@@ -135,7 +161,10 @@ public class LayarGetPOIsAction {
 	 * button. Layar will provide a predefined set of icons that content authors
 	 * can use here
 	 */
-	public Integer activityType;
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root.actions|hotspots.actions")
+	@LayarDefaultValue("0")
+	public Integer activityType = 0;
 
 	/**
 	 * This tells the client whether or not to show that there is background
@@ -143,6 +172,8 @@ public class LayarGetPOIsAction {
 	 * autoTriggered actions where it may not always be good user experience to
 	 * show something. True by default
 	 */
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root.actions|hotspots.actions")
 	public Boolean showActivity;
 
 	/**
@@ -152,6 +183,8 @@ public class LayarGetPOIsAction {
 	 * NOTE: this is only shown for actions that run in the background, like
 	 * contentType text/plain and application/vnd.layar.async.
 	 */
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("root.actions|hotspots.actions")
 	public String activityMessage;
 
 	/**
@@ -166,8 +199,20 @@ public class LayarGetPOIsAction {
 	 * NOTE: not included in the new Actions object (layer level) defined in the
 	 * JSON response.
 	 */
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("hotspots.actions")
 	public Integer autoTriggerRange;
 
+	/**
+	 * Autotrigger indicator for Vision enabled POIs. 
+	 * "autoTriggerRange" mentioned above does not work for Vision enabled POIs because there is no range to be determined.
+	 * NOTE: not included in the layer level Actions object defined in the JSON response.
+	 */
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("hotspots.actions")
+	@LayarDefaultValue("false")
+	public Boolean autoTrigger = false;
+	
 	/**
 	 * Indicates whether of not this action can also be invoked manually by the
 	 * user outside of the range specified. If true, the action will not be
@@ -177,5 +222,8 @@ public class LayarGetPOIsAction {
 	 * NOTE: not included in the new Actions object (layer level) defined in the
 	 * JSON response.
 	 */
-	public Boolean autoTriggerOnly;
+	@LayarApiVersion("2.1")
+	@LayarApiCategory("hotspots.actions")
+	@LayarDefaultValue("false")
+	public Boolean autoTriggerOnly = false;
 }

@@ -29,7 +29,6 @@ package it.ingloba360.jlayarapi;
 
 import it.ingloba360.jlayarapi.annotations.LayarApiCategory;
 import it.ingloba360.jlayarapi.annotations.LayarApiVersion;
-import it.ingloba360.jlayarapi.annotations.LayarOptional;
 import it.ingloba360.jlayarapi.annotations.LayarRequired;
 
 import java.util.ArrayList;
@@ -56,7 +55,6 @@ public class LayarGetPOIsDialog {
     /**
      * Icon to show in the dialog box.
 	 */
-    @LayarRequired
 	@LayarApiVersion("6.0")
 	@LayarApiCategory("root.showDialog")	
 	public String iconURL;
@@ -64,17 +62,8 @@ public class LayarGetPOIsDialog {
     /**
      * Buttons with various actions.
 	 */
-    @LayarRequired
 	@LayarApiVersion("6.0")
 	@LayarApiCategory("root.showDialog")	
 	public List<LayarGetPOIsAction> actions = new ArrayList<LayarGetPOIsAction>();
-    
-    /**
-     * Specifies the BW style in the Camera view on layer level.
-	 */
-    @LayarOptional
-	@LayarApiVersion("6.0")
-	@LayarApiCategory("root.showDialog")	
-	public List<LayarGetPOIsAction> biwStyle = new ArrayList<LayarGetPOIsAction>();
 
 }
