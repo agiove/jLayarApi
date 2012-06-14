@@ -16,6 +16,7 @@ public class LayarSecurity {
 		layarServers.add("46.137.128.0/18 (46.137.128.0 - 46.137.191.255)");
 		layarServers.add("176.34.128.0/17 (176.34.128.0 - 176.34.255.255)");
 		layarServers.add("176.34.64.0/18 (176.34.64.0 – 176.34.127.255)");
+		layarServers.add("54.247.0.0/16 (54.247.0.0 – 54.247.255.255)");
 		
 		layarVersions.add("2");
 		layarVersions.add("2.1");
