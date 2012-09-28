@@ -18,12 +18,11 @@
  * library. If not, see <http://www.gnu.org/licenses/>.
  * 
  * ------------------
- * LayarRequired.java
+ * LayarRequiredOne.java
  * ------------------
  * (C) Copyright 2012 by Ingloba360
  * 
  * Original Author: Angelo Giove (angelo.giove AT ingloba360.it)
- * 				 	Antonio Fittipaldi (antonio.fittipaldi AT ingloba360.it)
  */
 package it.ingloba360.jlayarapi.annotations;
 

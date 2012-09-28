@@ -23,14 +23,18 @@
  * (C) Copyright 2012 by Ingloba360
  * 
  * Original Author: Angelo Giove (angelo.giove AT ingloba360.it)
- * 				 	Antonio Fittipaldi (antonio.fittipaldi AT ingloba360.it)
  */
 package it.ingloba360.jlayarapi;
 
 import it.ingloba360.jlayarapi.annotations.LayarApiCategory;
+import it.ingloba360.jlayarapi.annotations.LayarApiDeprecated;
 import it.ingloba360.jlayarapi.annotations.LayarApiVersion;
 import it.ingloba360.jlayarapi.annotations.LayarDefaultValue;
 import it.ingloba360.jlayarapi.annotations.LayarRequired;
+import it.ingloba360.jlayarapi.response.LayarGetPOIsAction;
+import it.ingloba360.jlayarapi.response.LayarGetPOIsAnimation;
+import it.ingloba360.jlayarapi.response.LayarGetPOIsDialog;
+import it.ingloba360.jlayarapi.response.LayarGetPOIsHotspot;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -220,5 +224,6 @@ public class LayarGetPOIsResponse implements Serializable {
 	@LayarApiVersion("6.0")
 	@LayarApiCategory("root")
 	@LayarDefaultValue("false")
+	@LayarApiDeprecated("6.2")
 	public Boolean disableClueMenu = false;
 }

@@ -23,7 +23,6 @@
  * (C) Copyright 2012 by Ingloba360
  * 
  * Original Author: Angelo Giove (angelo.giove AT ingloba360.it)
- * 				 	Antonio Fittipaldi (antonio.fittipaldi AT ingloba360.it)
  */
 package it.ingloba360.jlayarapi;
 
@@ -31,6 +30,8 @@ import it.ingloba360.jlayarapi.annotations.LayarApiCategory;
 import it.ingloba360.jlayarapi.annotations.LayarApiVersion;
 import it.ingloba360.jlayarapi.annotations.LayarDefaultValue;
 import it.ingloba360.jlayarapi.annotations.LayarRequired;
+import it.ingloba360.jlayarapi.request.LayarGetPOIsOAuthSupport;
+import it.ingloba360.jlayarapi.request.LayarGetPOIsRequestHeader;
 
 public class LayarGetPOIsRequest {
 	
