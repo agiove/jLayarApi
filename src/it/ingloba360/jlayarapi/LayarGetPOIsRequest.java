@@ -50,6 +50,10 @@ public class LayarGetPOIsRequest {
 	 * Unique ID of the end-user, anonymized.  
 	 * It is a hashed code. In most cases the IMEI is used to create the hash, 
 	 * otherwise another unique ID (e.g. UDID for IPhone or other serial number on other devices).
+	 * 
+	 * 2013-09-21
+	 * A unique ID of the end-user, anonymized. It is a hashed code. This ID is created when the layar app is installed the first time. It will be kept when the app is updated. A new ID is generated when the app is completely removed from the device and replaced with a new download.
+	 * NOTE: Since the algorithm of generating this unique ID is changed in API v6.2, the userID will be replaced when upgrading to v6.2. In future releases, as long as the Layar app is not removed completely, the userID will be kept.
 	 */
 	@LayarRequired
 	@LayarApiVersion("2.1")
@@ -237,6 +241,11 @@ public class LayarGetPOIsRequest {
 	
 	/**
 	 * The key of the reference image that caused this layer to show up in the visual search results.
+	 * 
+	 * 2013-09-21
+	 * If only one reference image in the layer is recognized: recognizedReferenceImage=cheating
+	 * If multiple reference images in the layer are recognized, image keys are separated using comma (%2C):
+	 * recognizedReferenceImage=cheating%2Cmonkey%2Cbeer
 	 */
 	@LayarApiVersion("6.0")
 	@LayarApiCategory("layar Vision")

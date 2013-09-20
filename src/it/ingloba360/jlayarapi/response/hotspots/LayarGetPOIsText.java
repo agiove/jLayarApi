@@ -39,7 +39,7 @@ public class LayarGetPOIsText {
 	 * The recommended maximum string length is 60 characters and it will be wrapped over 2 lines. 
 	 */
 	@LayarRequired
-	@LayarApiVersion("2.1")
+	@LayarApiVersion("6.0")
 	@LayarApiCategory("root.hotspots.text")
 	@LayarMaxDim("60")
 	public String title;
@@ -49,7 +49,7 @@ public class LayarGetPOIsText {
 	 * It has normal font and uses the BIW Text Color defined under the "Look & feel" tab of the publishing site. 
 	 * The recommended maximum string length is 140 characters and it will be wrapped over 3 lines.
 	 */
-	@LayarApiVersion("2.1")
+	@LayarApiVersion("6.0")
 	@LayarApiCategory("root.hotspots.text")
 	@LayarMaxDim("140")
 	public String description;
@@ -60,7 +60,7 @@ public class LayarGetPOIsText {
 	 * The recommended maximum string length is 45 characters without wrapping. 
 	 * Extra characters will be cut off on the screen.
 	 */
-	@LayarApiVersion("2.1")
+	@LayarApiVersion("6.0")
 	@LayarApiCategory("root.hotspots.text")
 	@LayarMaxDim("45")
 	public String footnote;

@@ -40,7 +40,7 @@ public class LayarGetPOIsObject {
     image/jpeg, image/gif, image/png for images. 
 	 */
 	@LayarRequired
-	@LayarApiVersion("2.1")
+	@LayarApiVersion("3.0")
 	@LayarApiCategory("root.hotspots.object")
 	public String contentType;
 	
@@ -48,7 +48,7 @@ public class LayarGetPOIsObject {
 	 * The URL of the object to be displayed.
 	 */
 	@LayarRequired
-	@LayarApiVersion("2.1")
+	@LayarApiVersion("3.0")
 	@LayarApiCategory("root.hotspots.object")
 	public String url;
 	
@@ -57,7 +57,7 @@ public class LayarGetPOIsObject {
 	 * For 3D models, this is a cue to the client whether to select the full model or the reduced model (if there is a reduced model) to download. 
 	 */
 	@LayarRequired
-	@LayarApiVersion("2.1")
+	@LayarApiVersion("3.0")
 	@LayarApiCategory("root.hotspots.object")
 	public Double size;
 	
@@ -66,7 +66,7 @@ public class LayarGetPOIsObject {
 	 * Specifying this can improve performance when there are many POIs on the screen. 
 	 * NOTE: Do not put the same URL here as for object.url, it will not have any functional effect and only consume bandwidth. 
 	 */
-	@LayarApiVersion("2.1")
+	@LayarApiVersion("3.0")
 	@LayarApiCategory("root.hotspots.object")
 	public String reducedURL;
 }

@@ -60,7 +60,7 @@ public class LayarGetPOIsHotspot implements Serializable {
 	 * For geolocation, alt is optional but lat and lon are mandatory.
 	 */
 	@LayarRequired
-	@LayarApiVersion("2.1")
+	@LayarApiVersion("6.0")
 	@LayarApiCategory("root.hotspots")	
 	public LayarGetPOIsAnchor anchor;
 
@@ -69,7 +69,7 @@ public class LayarGetPOIsHotspot implements Serializable {
 	 * It contains three parameters, title, description and footnote.
 	 */
 	@LayarRequired
-	@LayarApiVersion("2.1")
+	@LayarApiVersion("6.0")
 	@LayarApiCategory("root.hotspots")
 	public LayarGetPOIsText text;
 	
@@ -95,7 +95,7 @@ public class LayarGetPOIsHotspot implements Serializable {
 	 * This tells the layar client whether or not a small BIW (the one at the bottom of the screen) 
 	 * should be shown when the POI is in focus. 
 	 */
-	@LayarApiVersion("2.1")
+	@LayarApiVersion("4.0")
 	@LayarApiCategory("root.hotspots")
 	@LayarDefaultValue("true")
 	public Boolean showSmallBiw = true;
@@ -108,7 +108,7 @@ public class LayarGetPOIsHotspot implements Serializable {
 	 * The first one is triggered by a user click, one other action can be activated by using autoTrigger settings. 
 	 * More than 2 actions won't be used.
 	 */
-	@LayarApiVersion("2.1")
+	@LayarApiVersion("4.0")
 	@LayarApiCategory("root.hotspots")
 	@LayarDefaultValue("true")
 	public Boolean showBiwOnClick = true;
@@ -119,7 +119,7 @@ public class LayarGetPOIsHotspot implements Serializable {
 	 * only shows the text.title parameter. 
 	 * This POI level "biwStyle" will overrule the "biwStyle" defined on the layer level.
 	 */
-	@LayarApiVersion("2.1")
+	@LayarApiVersion("6.0")
 	@LayarApiCategory("root.hotspots")
 	@LayarDefaultValue("classic|collapsed")
 	public String biwStyle = "classic";
@@ -130,7 +130,7 @@ public class LayarGetPOIsHotspot implements Serializable {
 	 * it is recommended to use the CIW icon sets. 
 	 * You can check here to learn more on how Layar client renders POIs in the Camera view.
 	 */
-	@LayarApiVersion("2.1")
+	@LayarApiVersion("6.0")
 	@LayarApiCategory("root.hotspots")
 	public LayarGetPOIsIcon icon;
 	
@@ -141,18 +141,18 @@ public class LayarGetPOIsHotspot implements Serializable {
 	 * NOTE: For 2d images, the image file size should be smaller than 100Kb. 
 	 * For 3d objects, the file size should be smaller than 1Mb.
 	 */
-	@LayarApiVersion("2.1")
+	@LayarApiVersion("3.0")
 	@LayarApiCategory("root.hotspots")
 	public LayarGetPOIsObject object;
 	
 	/**
 	 * 	A few factors can be used to transform the 2D and 3D objects in the Camera view, for instance scale, rotation and translate. 
 	 */
-	@LayarApiVersion("2.1")
+	@LayarApiVersion("3.0")
 	@LayarApiCategory("root.hotspots")
 	public LayarGetPOIsTransform transform;
 	
 	public Boolean inFocus = false;
-	public Boolean doNotIndex = false;
+//	public Boolean doNotIndex = false;
 	public List<LayarGetPOIsAnimation> animations = new ArrayList<LayarGetPOIsAnimation>();
 }
